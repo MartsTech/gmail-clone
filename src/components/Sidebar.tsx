@@ -11,15 +11,20 @@ import PersonIcon from "@material-ui/icons/Person";
 import PhoneIcon from "@material-ui/icons/Phone";
 import StarIcon from "@material-ui/icons/Star";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { openSendMessage } from "../features/mailSlice";
 import styles from "../styles/Sidebar.module.css";
 import { SidebarOption } from "./SidebarOption";
 
 export const Sidebar: React.FC = () => {
+  const dispatch = useDispatch();
+
   return (
     <div className={styles.sidebar}>
       <Button
         startIcon={<AddIcon fontSize="large" />}
         className={styles.compose}
+        onClick={() => dispatch(openSendMessage())}
       >
         Compose
       </Button>
