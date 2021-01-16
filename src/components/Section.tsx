@@ -1,7 +1,7 @@
 import { SvgIconTypeMap } from "@material-ui/core";
 import { OverridableComponent } from "@material-ui/core/OverridableComponent";
-import React from "react";
 import clsx from "clsx";
+import React from "react";
 import styles from "../styles/Section.module.css";
 
 interface SectionProps {

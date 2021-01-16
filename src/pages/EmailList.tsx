@@ -9,12 +9,32 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import PeopleIcon from "@material-ui/icons/People";
 import RedoIcon from "@material-ui/icons/Redo";
 import SettingsIcon from "@material-ui/icons/Settings";
-import React from "react";
+import firebase from "firebase";
+import React, { useEffect, useState } from "react";
 import { EmailRow } from "../components/EmailRow";
 import { Section } from "../components/Section";
+import { db } from "../firebase";
 import styles from "../styles/EmailList.module.css";
 
 const EmailList: React.FC = () => {
+  const [emails, setEmails] = useState<
+    { id: string; data: firebase.firestore.DocumentData }[]
+  >([]);
+
+  useEffect(() => {
+    db.collection("emails")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) => {
+        setEmails(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            data: doc.data(),
+          }))
+        );
+      });
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div className={styles.emailList}>
       <div className={styles.settings}>
@@ -52,18 +72,16 @@ const EmailList: React.FC = () => {
       </div>
 
       <div className={styles.list}>
-        <EmailRow
-          title="Twitch"
-          subject="Hey fellow streamers!!!"
-          description="This is a test"
-          time="10pm"
-        />
-        <EmailRow
-          title="Twitch"
-          subject="Hey fellow streamers!!!"
-          description="This is a test"
-          time="10pm"
-        />
+        {emails.map(({ id, data: { to, subject, message, timestamp } }) => (
+          <EmailRow
+            key={id}
+            id={id}
+            title={to}
+            subject={subject}
+            description={message}
+            time={new Date(timestamp?.seconds * 1000).toUTCString()}
+          />
+        ))}
       </div>
     </div>
   );

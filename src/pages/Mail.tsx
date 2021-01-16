@@ -12,17 +12,21 @@ import PrintIcon from "@material-ui/icons/Print";
 import UnfoldMoreIcon from "@material-ui/icons/UnfoldMore";
 import WatchLaterIcon from "@material-ui/icons/WatchLater";
 import React from "react";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { selectOpenMail } from "../features/mailSlice";
 import styles from "../styles/Mail.module.css";
 
 const Mail: React.FC = () => {
   const history = useHistory();
 
+  const selectedMail = useSelector(selectOpenMail);
+
   return (
     <div className={styles.mail}>
       <div className={styles.tools}>
         <div className={styles.left}>
-          <IconButton onClick={() => history.push("/")}>
+          <IconButton onClick={() => history.push("/")} name="arrowBack">
             <ArrowBackIcon />
           </IconButton>
           <IconButton>
@@ -64,13 +68,13 @@ const Mail: React.FC = () => {
       </div>
       <div className={styles.body}>
         <div className={styles.header}>
-          <h2>Subject</h2>
+          <h2>{selectedMail?.subject}</h2>
           <LabelImportantIcon className={styles.important} />
-          <p>Title</p>
-          <p className={styles.time}>10pm</p>
+          <p>{selectedMail?.title}</p>
+          <p className={styles.time}>{selectedMail?.time}</p>
         </div>
         <div className={styles.message}>
-          <p>This is a message</p>
+          <p>{selectedMail?.description}</p>
         </div>
       </div>
     </div>

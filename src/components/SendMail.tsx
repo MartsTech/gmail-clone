@@ -1,9 +1,11 @@
 import { Button } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
+import firebase from "firebase";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { closeSendMessage } from "../features/mailSlice";
+import { db } from "../firebase";
 import styles from "../styles/SendMail.module.css";
 
 type MailData = {
@@ -18,7 +20,14 @@ export const SendMail: React.FC = () => {
   const { register, handleSubmit, errors } = useForm<MailData>();
 
   const onSubmit = (data: MailData) => {
-    console.log(data);
+    db.collection("emails").add({
+      to: data.to,
+      subject: data.subject,
+      message: data.message,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+
+    dispatch(closeSendMessage());
   };
 
   return (
