@@ -19,4 +19,9 @@ export default HeaderLogo;
 
 const StyledContainer = styled.div`
   margin-left: 0.25rem;
+  display: none;
+
+  @media (min-width: 640px) {
+    display: inline-flex;
+  }
 `;

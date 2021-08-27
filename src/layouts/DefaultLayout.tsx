@@ -6,16 +6,24 @@ const DefaultLayout: React.FC = ({ children }) => {
   return (
     <>
       <Header />
-      <StyledMain>
+      <StyledContainer>
         <Sidebar />
-        {children}
-      </StyledMain>
+        <StyledMain>{children}</StyledMain>
+      </StyledContainer>
     </>
   );
 };
 
 export default DefaultLayout;
 
-const StyledMain = styled.main`
+const StyledContainer = styled.main`
   display: flex;
+`;
+
+const StyledMain = styled.main`
+  flex: 1;
+
+  @media (min-width: 640px) {
+    margin-left: 20rem;
+  }
 `;

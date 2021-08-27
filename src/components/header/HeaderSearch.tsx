@@ -18,8 +18,12 @@ const StyledContainer = styled.div`
   display: flex;
   align-items: center;
   background-color: whitesmoke;
-  padding: 0.75rem;
+  padding: 0.75rem 0;
   border-radius: 0.25rem;
+
+  @media (min-width: 640px) {
+    padding: 0.75rem;
+  }
 `;
 
 const StyledSearchIcon = styled(SearchIcon)`

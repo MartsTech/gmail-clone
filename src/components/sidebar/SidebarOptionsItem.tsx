@@ -1,6 +1,6 @@
 import { SvgIconTypeMap } from "@material-ui/core";
 import { OverridableComponent } from "@material-ui/core/OverridableComponent";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 interface SidebarOptionsItemProps {
   Icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>;

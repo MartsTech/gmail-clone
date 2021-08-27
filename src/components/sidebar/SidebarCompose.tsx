@@ -1,10 +1,16 @@
 import { Button } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
+import { useStore } from "stores/store";
 import styled from "styled-components";
 
 const SidebarCompose = () => {
+  const { setEmailFormOpened } = useStore().emailStore;
+
   return (
-    <StyledButton startIcon={<AddIcon fontSize="large" />}>
+    <StyledButton
+      onClick={() => setEmailFormOpened(true)}
+      startIcon={<AddIcon fontSize="large" />}
+    >
       Compose
     </StyledButton>
   );

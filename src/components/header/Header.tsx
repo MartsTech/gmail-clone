@@ -47,5 +47,8 @@ const StyledCenter = styled.div`
 const StyledRight = styled.div`
   display: flex;
   justify-content: space-between;
-  padding-right: 1.25rem;
+
+  @media (min-width: 640px) {
+    padding-right: 1.25rem;
+  }
 `;

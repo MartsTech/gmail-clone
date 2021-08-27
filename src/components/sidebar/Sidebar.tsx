@@ -25,15 +25,15 @@ const StyledSidebar = styled.section<{ active: boolean }>`
   left: 0;
   z-index: 50;
   background-color: white;
-
-  width: 20rem;
+  width: 100%;
   height: 100%;
   padding-right: 1.25rem;
   transition: all 200;
   transform: ${({ active }) =>
-    active ? "transform: translateX(0)" : "translateX(-20rem)"};
+    active ? "transform: translateX(0)" : "translateX(100%)"};
 
-  @media (min-width: 640px) {
+  @media (min-width: 768px) {
     transform: translateX(0);
+    width: 20rem;
   }
 `;

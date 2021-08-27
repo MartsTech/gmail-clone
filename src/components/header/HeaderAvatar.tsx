@@ -16,10 +16,13 @@ const HeaderAvatar = () => {
 export default observer(HeaderAvatar);
 
 const StyledContainer = styled.div`
-  margin-left: 0.25rem;
   cursor: pointer;
 
   :hover {
     opacity: 0.9;
+  }
+
+  @media (min-width: 640px) {
+    margin-left: 0.25rem;
   }
 `;
