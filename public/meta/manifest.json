@@ -1,0 +1,14 @@
+{
+  "name": "Gmail Clone",
+  "short_name": "Gmail Clone",
+  "icons": [
+    {
+      "src": "/meta/icon.png",
+      "sizes": "512x512"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "https://gmail-clone-martstech.vercel.app"
+}
