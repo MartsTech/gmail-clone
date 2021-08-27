@@ -1,39 +1,35 @@
-import { Button } from "@material-ui/core";
 import Image from "next/image";
-import { useStore } from "stores/store";
+import ClipLoader from "react-spinners/ClipLoader";
 import styled from "styled-components";
 
-const Login = () => {
-  const { signInGoogle } = useStore().userStore;
-
+const Loading = () => {
   return (
     <StyledWrapper>
       <StyledContainer>
         <Image
           src="/images/brand.png"
-          alt="brand"
-          objectFit="contain"
           width={355}
           height={200}
+          objectFit="contain"
+          alt="logo"
         />
-        <Button variant="contained" color="primary" onClick={signInGoogle}>
-          Sign In
-        </Button>
+        <ClipLoader size={70} />
       </StyledContainer>
     </StyledWrapper>
   );
 };
 
-export default Login;
+export default Loading;
 
 const StyledWrapper = styled.div`
-  background-color: #f2f2f2;
   display: grid;
   place-items: center;
   height: 100vh;
+  background-color: #f2f2f2;
 `;
 
 const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;

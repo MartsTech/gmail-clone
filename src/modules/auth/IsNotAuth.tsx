@@ -1,3 +1,4 @@
+import Loading from "components/loading/Loading";
 import { observer } from "mobx-react-lite";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -17,7 +18,7 @@ const IsNotAuth: React.FC = ({ children }) => {
     return <>{children}</>;
   }
 
-  return null;
+  return <Loading />;
 };
 
 export default observer(IsNotAuth);
