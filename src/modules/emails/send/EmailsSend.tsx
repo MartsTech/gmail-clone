@@ -1,7 +1,6 @@
 import { observer } from "mobx-react-lite";
 import { useStore } from "stores/store";
 import styled from "styled-components";
-import EmailsSendFooter from "./EmailsSendFooter";
 import EmailsSendForm from "./EmailsSendForm";
 import EmailsSendHeader from "./EmailsSendHeader";
 
@@ -16,7 +15,6 @@ const EmailsSend = () => {
     <StyledContainer opened={emailFormOpened}>
       <EmailsSendHeader />
       <EmailsSendForm />
-      <EmailsSendFooter />
     </StyledContainer>
   );
 };

@@ -5,10 +5,9 @@ import {
   signOut,
   User as FirebaseUser,
 } from "firebase/auth";
-import { makeAutoObservable } from "mobx";
-import { toast } from "react-toastify";
+import { makeAutoObservable, reaction } from "mobx";
 import { User } from "types/user";
-import { resetStore } from "./store";
+import { resetStore, store } from "./store";
 
 class UserStore {
   user: User | null = null;
@@ -16,6 +15,15 @@ class UserStore {
 
   constructor() {
     makeAutoObservable(this);
+
+    reaction(
+      () => this.user,
+      (user) => {
+        if (user) {
+          store.emailStore.loadEmails();
+        }
+      }
+    );
   }
 
   reset = () => {
@@ -31,7 +39,7 @@ class UserStore {
         this.setUser(user);
       })
       .catch((error) => {
-        toast.error(error.message);
+        alert(error.message);
       });
 
     this.loading = false;

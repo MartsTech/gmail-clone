@@ -1,3 +1,4 @@
+import { Button } from "@material-ui/core";
 import TextInput from "components/form/TextInput";
 import { Form, Formik } from "formik";
 import { useStore } from "stores/store";
@@ -31,6 +32,9 @@ const EmailsSendForm = () => {
           <TextInput name="recipient" placeholder="Recipient" />
           <TextInput name="subject" placeholder="Subject" />
           <TextInput name="message" placeholder="Message" />
+          <StyledButton variant="contained" color="primary" type="submit">
+            Send
+          </StyledButton>
         </StyledForm>
       )}
     </Formik>
@@ -41,7 +45,13 @@ export default EmailsSendForm;
 
 const StyledForm = styled(Form)`
   display: flex;
-  flex: 1;
   flex-direction: column;
   background-color: white;
+`;
+
+const StyledButton = styled(Button)`
+  &&& {
+    background-color: #3079ed;
+    text-transform: capitalize;
+  }
 `;

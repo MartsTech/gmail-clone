@@ -23,7 +23,7 @@ const StyledContainer = styled.main`
 const StyledMain = styled.main`
   flex: 1;
 
-  @media (min-width: 640px) {
+  @media (min-width: 768px) {
     margin-left: 20rem;
   }
 `;

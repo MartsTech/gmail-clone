@@ -38,6 +38,13 @@ const StyledContainer = styled.div<{ color: string; selected: boolean }>`
   background-color: ${({ selected }) => selected && "whitesmoke"};
   color: ${({ selected, color }) => (selected ? color : "gray")};
 
+  :hover {
+    border-bottom-color: ${({ color }) => color};
+    border-bottom-width: 3px;
+    background-color: whitesmoke;
+    color: ${({ color }) => color};
+  }
+
   @media (max-width: 640px) {
     width: 10rem;
 
