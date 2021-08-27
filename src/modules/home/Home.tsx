@@ -1,11 +1,7 @@
-import Header from "components/header/Header";
+import DefaultLayout from "layouts/DefaultLayout";
 
 const Home = () => {
-  return (
-    <>
-      <Header />
-    </>
-  );
+  return <DefaultLayout></DefaultLayout>;
 };
 
 export default Home;

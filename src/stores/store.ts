@@ -1,11 +1,14 @@
 import { createContext, useContext } from "react";
+import CommonStore from "./commonStore";
 import UserStore from "./userStore";
 
 interface Store {
+  commonStore: CommonStore;
   userStore: UserStore;
 }
 
 export const store: Store = {
+  commonStore: new CommonStore(),
   userStore: new UserStore(),
 };
 
@@ -16,6 +19,7 @@ export const useStore = () => {
 };
 
 export const resetStore = () => {
-  const { userStore } = store;
+  const { commonStore, userStore } = store;
+  commonStore.reset();
   userStore.reset();
 };

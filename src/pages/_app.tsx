@@ -5,14 +5,15 @@ import { AppProps } from "next/app";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { store, StoreContext } from "stores/store";
-import "styles/globals.css";
+import GlobalStyle from "styles/GlobalStyle";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <StoreContext.Provider value={store}>
       <AuthProvider>
-        <Component {...pageProps} />
         <DefaultSeo {...defaultSEO} />
+        <Component {...pageProps} />
+        <GlobalStyle />
         <ToastContainer position="bottom-right" hideProgressBar />
       </AuthProvider>
     </StoreContext.Provider>
