@@ -20,7 +20,7 @@
     "firebase": "^9.0.0",
     "formik": "^2.2.9",
     "mobx": "^6.3.2",
-    "mobx-react-lite": "^3.2.0",
+    "mobx-react-lite": "^3.2.1",
     "moment": "^2.29.1",
     "next": "11.1.0",
     "next-seo": "^4.26.0",
