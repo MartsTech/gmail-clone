@@ -1,7 +1,5 @@
 <h1 align="center">
-  <a href="https://gmail-clone-martstech.vercel.app">
-      <img width="200px" src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Gmail_Icon_%282013-2020%29.svg" alt="Gmail Logo" />
-  </a>
+  <img width="200px" src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Gmail_Icon_%282013-2020%29.svg" alt="Gmail Logo" />
   <br />
   Gmail Clone
   <br />
@@ -18,7 +16,6 @@
 </p>
 
 <p align="center">
-  <a href="#demo">Demo</a> •
   <a href="#key-features">Key Features</a> •
   <a href="#key-technologies">Key Technologies</a> •
   <a href="#setup">Setup</a> •
@@ -33,12 +30,6 @@
 ---
 
 ![Email Screenshot](public/screenshots/email.png?raw=true "Email Screenshot")
-
----
-
-## Demo
-
-Here is a working live demo [here](https://gmail-clone-martstech.vercel.app)
 
 ---
 
